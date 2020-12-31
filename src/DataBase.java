@@ -23,7 +23,7 @@ ObjectOutputStream os;
 		{
 		this.path=Path+System.currentTimeMillis()+"dataStorage.txt";
 			createFile(path);
-		}
+		} 
 		catch(Exception e)
 		{
 			
@@ -159,24 +159,22 @@ ObjectOutputStream os;
 	
 	
 	
-	public void create(String key,JSONObject value,int timeOut)       // method to store key and value into the database 
+	public String create(String key,JSONObject value,int timeOut)       // method to store key and value into the database 
 	{
 		if(!isKeyValid(key))                                           // invoking key validation method
 		{
-			System.out.println("Key is not Valid");
-			return;
+			return key +"is not Valid";
+			
 		}
 		if(!isValueValid(value))                                      // invoking json object validation method
 		{
-			System.out.println("-----------MEMORY ERROR------------");
-			System.out.println("Json Object memory Exceeded 16kb ");
-			return;
+			return "Json Object memory Exceeded 16kb ";
 		}
 		long size=value.toJSONString().getBytes().length/(1024*1024) + file.length()/(1024*1024);
 		if(size>1024)
 		{
-			System.out.println("-----------MEMORY LIMIT REACHED------------");     // checking the size of database it should not exceed 1GB
-			return;
+			                                                              // checking the size of database it should not exceed 1GB
+			return "MEMORY LIMIT REACHED";
 		}
 		try
 		{
@@ -188,33 +186,31 @@ ObjectOutputStream os;
 			data.setTimeOut(timeOut);
 			KVdata.put(key, data);
 			writeFile();
-			System.out.println(key+" is successfully stored in the database");
-		}
-		else
-		{
-			System.out.println("Key Already Exists");
+			return key+" is successfully stored in the database";
 		}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
+		return key+" Already Exists";
 	}
 	
 	
 	
 	
 	
-	public void create(String key,JSONObject value)           // method to store key and value into the database without any expiry timelimit of data
+	public String create(String key,JSONObject value)           // method to store key and value into the database without any expiry timelimit of data
 	{
 		try
 		{
-			create(key,value,0);
+			return create(key,value,0);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
+		return null;
 	}
 	
 	
@@ -248,12 +244,11 @@ ObjectOutputStream os;
 	
 	
 	
-	public void delete(String key)                              // method to delete the data from database
+	public String delete(String key)                              // method to delete the data from database
 	{
 		if(!isKeyValid(key))
 		{
-			System.out.println("Key is not Valid");
-			return;
+			return  key +" is not Valid";
 		}
 		try
 		{
@@ -262,17 +257,15 @@ ObjectOutputStream os;
 				
 				KVdata.remove(key);
 				writeFile();
-				System.out.println(key +" is deleted");
+				return key +" is deleted";
 			}
-			else
-			{
-				System.out.println("Key doesn't exists");
-			}
+			
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
+		return key +" doesn't exists";
 	}
 
 	

@@ -40,9 +40,9 @@ public class InteractiveClient {
 				System.out.println("Enter the timeout of data if not enter 0 ");
 				int timeOut=s.nextInt();
 				if(timeOut==0)
-					db.create(key, value);
+					System.out.println(db.create(key, value));
 				else
-					db.create(key, value, timeOut);
+					System.out.println(db.create(key, value, timeOut));
 				break;
 			case 2:
 				System.out.println("Enter Name");
@@ -61,7 +61,7 @@ public class InteractiveClient {
 			case 3:
 				System.out.println("Enter Name");
 				key=s.next();
-				db.delete(key);
+				System.out.println(db.delete(key));
 				break;
 			case 4:
 				System.out.println("Thank you... Process Terminated");

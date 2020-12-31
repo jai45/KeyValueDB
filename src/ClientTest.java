@@ -9,14 +9,14 @@ public class ClientTest extends Thread {
 		JSONObject obj=new JSONObject();
 		obj.put("city","Bangalore");
 		obj.put("age",32);
-		d.delete("Jai");
-		d.create("Bjorn", obj, 1);
-		d.delete("Hello this is longest key over thirty two(32) characters to test");
-		d.create("Bjorn", obj);
+		System.out.println(d.delete("Jai"));
+		System.out.println(d.create("Bjorn", obj, 10));
+		System.out.println(d.delete("Hello this is longest key over thirty two(32) characters to test"));
+		System.out.println(d.create("Bjorn", obj));
 		
 	}
 	
-	
+	 
 	
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
@@ -26,9 +26,9 @@ public class ClientTest extends Thread {
 		value.put("age",21);
 		ClientTest ct=new ClientTest();
 		ct.start();
-		d.create("Jai", value);
-		d.create("Ragnar", value);
-		d.delete("Bjorn");
+		System.out.println(d.create("Jai", value));
+		System.out.println(d.create("Ragnar", value));
+		System.out.println(d.delete("Bjorn"));
 		
 	}
 
