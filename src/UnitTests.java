@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Test;
 
-class testDB {
+class UnitTests {
 
 	DataBase db=new DataBase();
 	@SuppressWarnings("unchecked")
