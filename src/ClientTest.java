@@ -10,7 +10,7 @@ public class ClientTest extends Thread {
 		obj.put("city","Bangalore");
 		obj.put("age",32);
 		System.out.println(d.delete("Jai"));
-		System.out.println(d.create("Bjorn", obj, 10));
+		System.out.println(d.create("Bjorn", obj, 1));
 		System.out.println(d.delete("Hello this is longest key over thirty two(32) characters to test"));
 		System.out.println(d.create("Bjorn", obj));
 		

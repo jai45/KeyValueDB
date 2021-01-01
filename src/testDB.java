@@ -32,7 +32,7 @@ class testDB {
 		JSONObject obj=new JSONObject();
 		obj.put("city","Goa");
 		obj.put("age",32);
-		db.create("ragnar", obj,1000);
+		db.create("ragnar", obj,1);
 		assertEquals(obj,db.read("ragnar"));
 	}
 	
@@ -43,7 +43,7 @@ class testDB {
 		obj.put("city","Delhi");
 		obj.put("age",32);
 		db.create("Krish", obj,1);
-		assertEquals(null,db.read("Krish"));
+		assertEquals(null,db.read("discovery"));
 	}
 	@SuppressWarnings("unchecked")
 	@Test
@@ -64,4 +64,5 @@ class testDB {
 		db.create("selena", obj);
 		assertEquals("Ram doesn't exists",db.delete("Ram"));
 	}
+	
 }

@@ -98,7 +98,7 @@ ObjectOutputStream os;
 			Data data=KVdata.get(key);
 			long currtime=System.currentTimeMillis();
 			long storedtime=data.getStoredtime(); 
-			int timeout=data.getTimeOut();
+			int timeout=data.getTimeOut()*1000;
 			if(timeout>0)                     // Checking if key is expired or not
 			{
 				if(currtime<=storedtime+timeout)
