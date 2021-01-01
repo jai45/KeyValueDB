@@ -68,8 +68,9 @@ class UnitTests {
 	void test7()
 	{
 		String key="This is invalid key above 32 characters to test read method";
-		     assertEquals(null,db.read(key));                                        //read invalid , create existed
+		     assertEquals(null,db.read(key));                                        
 	}
+	@SuppressWarnings("unchecked")
 	@Test
 	void test8()
 	{
