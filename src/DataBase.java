@@ -26,7 +26,7 @@ ObjectOutputStream os;
 		} 
 		catch(Exception e)
 		{
-			
+			e.printStackTrace();
 		}
 	}
 	DataBase()               //  this constructor is called if the path is not Specified
@@ -222,7 +222,6 @@ ObjectOutputStream os;
 	{
 		if(!isKeyValid(key))
 		{
-			System.out.println("Key is not Valid");
 			return null;
 		}
 		try

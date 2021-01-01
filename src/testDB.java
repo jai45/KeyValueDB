@@ -64,5 +64,19 @@ class testDB {
 		db.create("selena", obj);
 		assertEquals("Ram doesn't exists",db.delete("Ram"));
 	}
-	
+	@Test
+	void test7()
+	{
+		String key="This is invalid key above 32 characters to test read method";
+		     assertEquals(null,db.read(key));                                        //read invalid , create existed
+	}
+	@Test
+	void test8()
+	{
+		JSONObject obj=new JSONObject();
+		obj.put("city","manali");
+		obj.put("age",29);
+		db.create("abcd", obj);
+		assertEquals("abcd Already Exists",db.create("abcd",obj));
+	}
 }
