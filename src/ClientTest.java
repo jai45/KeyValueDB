@@ -9,14 +9,31 @@ public class ClientTest extends Thread {
 		JSONObject obj=new JSONObject();
 		obj.put("city","Bangalore");
 		obj.put("age",32);
-		System.out.println(d.delete("Jai"));
+		System.out.println(d.create("Ragnar", obj));
 		System.out.println(d.create("Bjorn", obj, 1));
 		System.out.println(d.delete("Hello this is longest key over thirty two(32) characters to test"));
-		System.out.println(d.create("Bjorn", obj));
+		
+		try {
+			Thread.sleep(2000);
+			
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(d.delete("Jai"));
+		test();
 		
 	}
 	
-	 
+	 @SuppressWarnings("unchecked")
+	public static void test()
+	 {
+		 JSONObject obj=new JSONObject();
+			obj.put("city","pondy");
+			obj.put("age",26);
+			
+		 System.out.println(d.read("Bjorn"));
+			System.out.println(d.create("Bjorn", obj));
+	 }
 	
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
@@ -24,11 +41,13 @@ public class ClientTest extends Thread {
 		JSONObject value=new JSONObject();
 		value.put("city", "Hyderabad");
 		value.put("age",21);
+		System.out.println(d.create("Ragnar", value));
+		System.out.println(d.read("Jai"));
 		ClientTest ct=new ClientTest();
 		ct.start();
 		System.out.println(d.create("Jai", value));
-		System.out.println(d.create("Ragnar", value));
-		System.out.println(d.delete("Bjorn"));
+		System.out.println(d.read("Jai"));
+		System.out.println(d.delete("Rest"));
 		
 	}
 

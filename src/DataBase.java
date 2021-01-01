@@ -96,9 +96,9 @@ ObjectOutputStream os;
 		if(KVdata.containsKey(key))
 		{
 			Data data=KVdata.get(key);
-			long currtime=System.currentTimeMillis();
-			long storedtime=data.getStoredtime(); 
 			int timeout=data.getTimeOut()*1000;
+			long storedtime=data.getStoredtime(); 
+			long currtime=System.currentTimeMillis();
 			if(timeout>0)                     // Checking if key is expired or not
 			{
 				if(currtime<=storedtime+timeout)
@@ -230,14 +230,12 @@ ObjectOutputStream os;
 			{
 				return KVdata.get(key).getValue();
 			}
-			else
-				return null;
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
-			return null;
 		}
+		return null;
 	}
 	
 	
