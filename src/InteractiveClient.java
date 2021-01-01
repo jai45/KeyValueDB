@@ -1,3 +1,17 @@
+/*
+ * 
+ * This is interactive client through command prompt and it will take inputs while running.
+ * Initially it takes name, age, city, Time-to-live to store the first key-value pair in the database
+ * Key is Name and value is JSON object which contains age and city as attributes
+ * 
+ * After that it will ask the user to choose to read the data, to delete the data, create data,
+ * or to exit from the console
+ * 
+ */
+
+
+
+
 import java.io.IOException;
 import java.util.*;
 
